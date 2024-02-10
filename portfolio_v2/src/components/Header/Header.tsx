@@ -1,13 +1,18 @@
 import { FunctionComponent, useEffect, useState } from "react";
 
-import logoBlack from "../../assets/LogoV3_Black.png";
-import logoWhite from "../../assets/LogoV3_White.png";
+import logoBlack from "../../assets/images/LogoV3_Black.png";
+import logoWhite from "../../assets/images/LogoV3_White.png";
+import cx from "classnames";
+
+import Styles from "./styles.module.scss";
 
 export const Header: FunctionComponent = () => {
   const [width, setWidth] = useState<number>(window.innerWidth);
   const [hasHeaderBackground, sethasHeaderBackground] =
     useState<boolean>(false);
   const [visibleMenu, setVisibleMenu] = useState<boolean>(false);
+
+  console.log(hasHeaderBackground, visibleMenu);
 
   const toggleMenu = () => {
     setVisibleMenu(!visibleMenu);
@@ -27,15 +32,18 @@ export const Header: FunctionComponent = () => {
     };
   }, [window.innerWidth, setVisibleMenu]);
 
+  console.log(width);
+
   return (
-    <header className={hasHeaderBackground ? "header header_black" : "header"}>
+    // <header className={hasHeaderBackground ? "header header_black" : Styles.Header}>
+    <header className={Styles.header}>
       <div className="header_container">
         <a href="https://davidpoulain.com/">
           <img
             className={
               hasHeaderBackground || visibleMenu
-                ? "logo"
-                : "logo logo_notVisibile"
+                ? Styles.logo
+                : Styles.logo_notVisibile
             }
             src={logoBlack}
             alt="logo"
@@ -43,8 +51,8 @@ export const Header: FunctionComponent = () => {
           <img
             className={
               hasHeaderBackground === false && visibleMenu === false
-                ? "logo"
-                : "logo logo_notVisibile"
+                ? Styles.logo
+                : Styles.logo_notVisibile
             }
             src={logoWhite}
             alt="logo"
@@ -55,30 +63,26 @@ export const Header: FunctionComponent = () => {
         <nav
           className={
             visibleMenu
-              ? "header_container header_container--nav header_container--nav--display"
-              : "header_container header_container--nav"
+              ? cx(
+                  Styles.header_container,
+                  Styles["header_container--nav"],
+                  Styles["header_container--nav--display"]
+                )
+              : cx(Styles.header_container, Styles["header_container--nav"])
           }
         >
-          <ul className="liste">
-            <li>
-              <a href="/#portfolio" className="li">
-                &#91; Portfolio &#93;
-              </a>
+          <ul className={Styles.navList}>
+            <li className={Styles.navList__item}>
+              <a href="/#portfolio">&#91; Portfolio &#93;</a>
             </li>
-            <li>
-              <a href="/#services" className="li">
-                &#91; Services &amp; Skill &#93;
-              </a>
+            <li className={Styles.navList__item}>
+              <a href="/#services">&#91; Services &amp; Skill &#93;</a>
             </li>
-            <li>
-              <a href="/#about" className="li">
-                &#91; A propos &#93;
-              </a>
+            <li className={Styles.navList__item}>
+              <a href="/#about">&#91; A propos &#93;</a>
             </li>
-            <li>
-              <a href="/#contact" className="li">
-                &#91; Contact &#93;
-              </a>
+            <li className={Styles.navList__item}>
+              <a href="/#contact">&#91; Contact &#93;</a>
             </li>
           </ul>
         </nav>
