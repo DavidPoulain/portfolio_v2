@@ -1,0 +1,136 @@
+.section__hero {
+  display: grid;
+  place-items: center;
+}
+
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 17em auto 11em auto;
+}
+
+.title__main {
+  font-family: new-order, sans-serif;
+  font-size: clamp(2rem, 5.5vw + 2rem, 12rem);
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.title__main--primary {
+  margin-left: 1em;
+  transform: translate(-70%);
+  animation: slide-in 0.75s 0.3s ease-in-out forwards,
+    txt-appearance 0.75s forwards;
+  overflow: hidden;
+}
+
+.title__main--secondary {
+  margin-left: auto;
+  transform: translate(90%);
+  animation: slide-in 0.95s 0.3s ease-in-out forwards,
+    txt-appearance 0.9s forwards;
+  overflow: hidden;
+}
+
+.title__main--subtitle {
+  font-size: clamp(1rem, 3vw + 1rem, 3rem);
+  font-weight: 300;
+  margin-left: 1.7em;
+  transform: translate(-110%);
+  animation: slide-in 0.75s 0.5s ease-in-out forwards,
+    txt-appearance 1.95s forwards;
+  overflow: hidden;
+}
+
+.scrollDowns {
+  margin: auto;
+  margin-top: 4em;
+  width: 34px;
+  height: 55px;
+}
+
+.mousey {
+  width: 3px;
+  padding: 10px 15px;
+  border: 2px solid $secondaryColor;
+  height: 35px;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+  animation: mouse-appreance 1.3s linear forwards;
+}
+
+.scroller {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: $secondaryColor;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+}
+
+@keyframes mouse-appreance {
+  0% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes txt-appearance {
+  from {
+    color: transparent;
+  }
+
+  to {
+    color: $mainFontColor;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home_container {
+    margin: 16em 10%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .title_main {
+    font-size: clamp(2rem, 3.5vw + 2rem, 12rem);
+  }
+}
