@@ -14,8 +14,19 @@ export const Header: FunctionComponent = () => {
 
   console.log(hasHeaderBackground, visibleMenu);
 
+  console.log(hasHeaderBackground);
+
   const toggleMenu = () => {
     setVisibleMenu(!visibleMenu);
+  };
+
+  const handleHeaderBackground = () => {
+    if (window.scrollY >= 50) {
+      sethasHeaderBackground(true);
+    }
+    else {
+      sethasHeaderBackground(false);
+    }
   };
 
   useEffect(() => {
@@ -32,144 +43,154 @@ export const Header: FunctionComponent = () => {
     };
   }, [window.innerWidth, setVisibleMenu]);
 
-  console.log(width);
+  window.addEventListener('scroll', handleHeaderBackground);
+  window.addEventListener('touchmove', handleHeaderBackground);
 
   return (
     // <header className={hasHeaderBackground ? "header header_black" : Styles.Header}>
-    <header className={Styles.header}>
-      <div className="header_container">
-        <a href="https://davidpoulain.com/">
-          <img
-            className={
-              hasHeaderBackground || visibleMenu
-                ? Styles.logo
-                : Styles.logo_notVisibile
-            }
-            src={logoBlack}
-            alt="logo"
-          />
-          <img
-            className={
-              hasHeaderBackground === false && visibleMenu === false
-                ? Styles.logo
-                : Styles.logo_notVisibile
-            }
-            src={logoWhite}
-            alt="logo"
-          />
-        </a>
-      </div>
-      {width > 840 ? (
-        <nav
-          className={
-            visibleMenu
-              ? cx(
-                  Styles.header_container,
-                  Styles["header_container--nav"],
-                  Styles["header_container--nav--display"]
-                )
-              : cx(Styles.header_container, Styles["header_container--nav"])
-          }
-        >
-          <ul className={Styles.navList}>
-            <li className={Styles.navList__item}>
-              <a href="/#portfolio">&#91; Portfolio &#93;</a>
-            </li>
-            <li className={Styles.navList__item}>
-              <a href="/#services">&#91; Services &amp; Skill &#93;</a>
-            </li>
-            <li className={Styles.navList__item}>
-              <a href="/#about">&#91; A propos &#93;</a>
-            </li>
-            <li className={Styles.navList__item}>
-              <a href="/#contact">&#91; Contact &#93;</a>
-            </li>
-          </ul>
-        </nav>
-      ) : (
-        <>
-          <button
-            aria-label="Ouvrir le menu"
-            type="button"
-            className="button"
-            onClick={() => {
-              toggleMenu();
-            }}
-          >
-            <span
-              className={`burger ${
-                hasHeaderBackground || visibleMenu ? "burger_black" : ""
-              } burger_top ${visibleMenu ? "burger_top--open" : ""}`}
+    <>
+      <div
+        className={
+          hasHeaderBackground
+            ? cx(Styles.header_background, Styles['header_background_on'], Styles['blackCursor'])
+            : Styles.header_background
+        }
+      />
+      <header className={hasHeaderBackground ? cx(Styles.header, Styles['header_black']) : Styles.header}>
+        <div className="header_container">
+          <a href="https://davidpoulain.com/">
+            <img
+              className={
+                hasHeaderBackground || visibleMenu
+                  ? Styles.logo
+                  : Styles.logo_notVisibile
+              }
+              src={logoBlack}
+              alt="logo"
             />
-            <span
-              className={`burger ${
-                hasHeaderBackground || visibleMenu ? "burger_black" : ""
-              } burger_middle ${visibleMenu ? "burger_middle--open" : ""}`}
+            <img
+              className={
+                hasHeaderBackground === false && visibleMenu === false
+                  ? Styles.logo
+                  : Styles.logo_notVisibile
+              }
+              src={logoWhite}
+              alt="logo"
             />
-            <span
-              className={`burger ${
-                hasHeaderBackground || visibleMenu ? "burger_black" : ""
-              } burger_bottom ${visibleMenu ? "burger_bottom--open" : ""}`}
-            />
-          </button>
-          <div
+          </a>
+        </div>
+        {width > 840 ? (
+          <nav
             className={
               visibleMenu
-                ? "header_container header_container--nav header_container--nav--display"
-                : "header_container header_container--nav"
+                ? cx(
+                    Styles.header_container,
+                    Styles["header_container--nav"],
+                    Styles["header_container--nav--display"]
+                  )
+                : cx(Styles.header_container, Styles["header_container--nav"])
             }
           >
-            <nav>
-              <ul className="liste">
-                <li>
-                  <a
-                    href="/#portfolio"
-                    onClick={() => {
-                      toggleMenu();
-                    }}
-                    className="li"
-                  >
-                    &#91; Portfolio &#93;
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/#services"
-                    onClick={() => {
-                      toggleMenu();
-                    }}
-                    className="li"
-                  >
-                    &#91; Services &amp; Skill &#93;
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/#about"
-                    onClick={() => {
-                      toggleMenu();
-                    }}
-                    className="li"
-                  >
-                    &#91; A propos &#93;
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/#contact"
-                    onClick={() => {
-                      toggleMenu();
-                    }}
-                    className="li"
-                  >
-                    &#91; Contact &#93;
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </>
-      )}
-    </header>
+            <ul className={Styles.navList}>
+              <li className={Styles.navList__item}>
+                <a href="/#portfolio">&#91; Portfolio &#93;</a>
+              </li>
+              <li className={Styles.navList__item}>
+                <a href="/#services">&#91; Services &amp; Skill &#93;</a>
+              </li>
+              <li className={Styles.navList__item}>
+                <a href="/#about">&#91; A propos &#93;</a>
+              </li>
+              <li className={Styles.navList__item}>
+                <a href="/#contact">&#91; Contact &#93;</a>
+              </li>
+            </ul>
+          </nav>
+        ) : (
+          <>
+            <button
+              aria-label="Ouvrir le menu"
+              type="button"
+              className="button"
+              onClick={() => {
+                toggleMenu();
+              }}
+            >
+              <span
+                className={`burger ${
+                  hasHeaderBackground || visibleMenu ? "burger_black" : ""
+                } burger_top ${visibleMenu ? "burger_top--open" : ""}`}
+              />
+              <span
+                className={`burger ${
+                  hasHeaderBackground || visibleMenu ? "burger_black" : ""
+                } burger_middle ${visibleMenu ? "burger_middle--open" : ""}`}
+              />
+              <span
+                className={`burger ${
+                  hasHeaderBackground || visibleMenu ? "burger_black" : ""
+                } burger_bottom ${visibleMenu ? "burger_bottom--open" : ""}`}
+              />
+            </button>
+            <div
+              className={
+                visibleMenu
+                  ? "header_container header_container--nav header_container--nav--display"
+                  : "header_container header_container--nav"
+              }
+            >
+              <nav>
+                <ul className="liste">
+                  <li>
+                    <a
+                      href="/#portfolio"
+                      onClick={() => {
+                        toggleMenu();
+                      }}
+                      className="li"
+                    >
+                      &#91; Portfolio &#93;
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#services"
+                      onClick={() => {
+                        toggleMenu();
+                      }}
+                      className="li"
+                    >
+                      &#91; Services &amp; Skill &#93;
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#about"
+                      onClick={() => {
+                        toggleMenu();
+                      }}
+                      className="li"
+                    >
+                      &#91; A propos &#93;
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/#contact"
+                      onClick={() => {
+                        toggleMenu();
+                      }}
+                      className="li"
+                    >
+                      &#91; Contact &#93;
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </>
+        )}
+      </header>
+    </>
   );
 };

@@ -1,3 +1,13 @@
 body {
-    background-color: $mainColor;
+  background-color: $mainColor;
+  color: $mainFontColor;
+  font-family: korolev, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.toto {
+  height: 700px;
+  background-color: aqua;
+  margin-top: 500px;
 }
