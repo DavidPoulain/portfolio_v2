@@ -1,0 +1,14 @@
+/* $mainColor: #8D3635;
+$secondaryColor: #FAF6EC;
+$mainFontColor: #FAF6EC;
+$secondaryFontColor: #131212;
+$blackColor: #131212; */
+
+
+:root {
+    --main-color: #8D3635;
+    --secondary-color: #FAF6EC;
+    --main-font-color: #FAF6EC;
+    --secondary-font-color: #131212;
+    --black-color: #131212;
+  }

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import cx from "classnames";
 
-import Styles from './styles.module.scss';
+import Styles from './TopButton.module.css';
 
 const TopButton = () => {
   const [displayTopButton, setDisplayTopButton] = useState<boolean>(false);

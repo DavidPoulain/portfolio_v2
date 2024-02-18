@@ -1,3 +1,5 @@
+@import '@styles/__variables.module.css';
+
 .section__hero {
   display: grid;
   place-items: center;
@@ -54,7 +56,7 @@
 .mousey {
   width: 3px;
   padding: 10px 15px;
-  border: 2px solid $secondaryColor;
+  border: 2px solid var(--secondary-color);
   height: 35px;
   border-radius: 25px;
   opacity: 0.75;
@@ -66,7 +68,7 @@
   width: 3px;
   height: 10px;
   border-radius: 25%;
-  background-color: $secondaryColor;
+  background-color: var(--secondary-color);
   animation-name: scroll;
   animation-duration: 2.2s;
   animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
@@ -119,7 +121,7 @@
   }
 
   to {
-    color: $mainFontColor;
+    color: var(--maint-font-color);
   }
 }
 

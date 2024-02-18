@@ -1,10 +1,10 @@
 import { FunctionComponent, useEffect, useState } from "react";
 
-import logoBlack from "../../assets/images/LogoV3_Black.png";
-import logoWhite from "../../assets/images/LogoV3_White.png";
+import logoBlack from "@images/LogoV3_Black.png";
+import logoWhite from "@images/LogoV3_White.png";
 import cx from "classnames";
 
-import Styles from "./styles.module.scss";
+import Styles from "./Header.module.css";
 
 export const Header: FunctionComponent = () => {
   const [width, setWidth] = useState<number>(window.innerWidth);

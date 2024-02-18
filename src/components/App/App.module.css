@@ -1,6 +1,8 @@
+@import '@styles/__variables.module.css';
+
 body {
-  background-color: $mainColor;
-  color: $mainFontColor;
+  background-color: var(--main-color);
+  color: var(--main-font-color);
   font-family: korolev, sans-serif;
   font-weight: 500;
   font-style: normal;

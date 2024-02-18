@@ -1,3 +1,5 @@
+@import '@styles/__variables.module.css';
+
 .logo {
   display: flex;
   max-width: 80px;
@@ -24,7 +26,7 @@
 }
 
 .header_black {
-  color: $blackColor;
+  color: var(--black-color);
 }
 
 .header_container {
@@ -42,7 +44,7 @@
 .header_background {
   z-index: 989;
   position: fixed;
-  background-color: $secondaryColor;
+  background-color: var(--secondary-color);
   width: 100vw;
   height: 60px;
   top: -60px;
@@ -55,7 +57,7 @@
 .header_background_on {
   transform: translate3d(0, 100%, 0);
   transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  color: $secondaryFontColor;
+  color: var(--black-color);
 }
 
 .navList {
@@ -85,7 +87,7 @@
   width: 45px;
   height: 40px;
   cursor: pointer;
-  border: solid 1px $blackColor;
+  border: solid 1px var(--black-color);
   border: none;
   background: transparent;
   right: 10px;
@@ -95,12 +97,12 @@
 @media screen and (max-width: 840px) {
   .header {
     z-index: 990;
-    // flex-wrap: nowrap;
-    // align-content: center;
+    /* flex-wrap: nowrap;
+    align-content: center; */
 
     &_color {
-      background-color: $secondaryColor;
-      color: $secondaryFontColor;
+      background-color: var(--secondary-color);
+      color: var(--secondary-font-color);
     }
 
     &_container--nav {
@@ -111,11 +113,11 @@
       top: -280px;
       left: 0;
       margin-right: 0;
-      background-color: $secondaryColor;
+      background-color: var(--secondary-color);
       width: 100%;
       justify-content: center;
       text-align: center;
-      color: $secondaryFontColor;
+      color: var(--secondary-font-color);
       transition: ease-in-out 0.3s;
 
       & ul {
@@ -130,7 +132,7 @@
 
   .burger {
     display: block;
-    background: $secondaryColor;
+    background: var(--secondary-color);
     width: 30px;
     height: 3px;
     border-radius: 5px;
@@ -172,7 +174,7 @@
   .mobileNav__item {
     height: 50px;
     width: 100%;
-    background-color: $secondaryColor;
+    background-color: var(--secondary-color);
     line-height: 50px;
   }
 

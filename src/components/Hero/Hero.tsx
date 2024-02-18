@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 
 import cx from "classnames";
 
-import Styles from './styles.module.scss';
+import Styles from './Hero.module.css';
 
 export const Hero: FunctionComponent = () => {
   return (

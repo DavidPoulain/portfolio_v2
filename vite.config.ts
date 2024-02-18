@@ -4,11 +4,15 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@images': '/src/assets/images',
+      '@styles': '/src/assets/styles',
+    },
+  },
   css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "./src/assets/styles/vars.scss";'
-      }
+    modules: {
+      localsConvention: 'camelCase',
     }
   }
 })

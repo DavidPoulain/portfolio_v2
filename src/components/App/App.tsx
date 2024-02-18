@@ -1,8 +1,7 @@
-import "./styles.module.scss";
 import { Header } from "../Header/Header";
 import TopButton from "../TopButton/TopButton";
 
-import Styles from './styles.module.scss';
+import Styles from './App.module.css';
 import { Hero } from "../Hero/Hero";
 
 const App = () => (
