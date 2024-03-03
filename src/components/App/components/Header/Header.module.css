@@ -1,4 +1,4 @@
-@import '@styles/__variables.module.css';
+/* @import '@styles/__variables.module.css'; */
 
 .logo {
   display: flex;
@@ -59,6 +59,8 @@
   transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   color: var(--black-color);
 }
+
+.blackCursor{}
 
 .navList {
   margin-top: 3px;
